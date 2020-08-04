@@ -14,3 +14,20 @@ script:
 
 after_success:
   coveralls
+
+env:
+  global:
+    - secure: "KAKVcrUY22AXfooMRcDOV1H/Xy6/Cf99OkrG/T6dA5wsn9P1P/4LLSoiammW616GqyqpHiqJqM1QryRQn+7fKP9IAgCxSiY7yPTAMyHBc9vwJu/mgoQaFfBpnmZQ7dPK37R50snLNEJOi8Nv6vB0pDjafJx53WKWANJBuFUczME="
+    - secure: "XMRgSB0T7psz/zIUIX8AXqG0xdEFr6gTDkI6vZbYiWzplshia9iWH/XgiXBk0Q48uPI0LFe5hA2VI2kXgLqRx80VQloOJzJ8wv6hsM9RJ2oBuJ6O6GkickZUejQDN5dBgtrU/zlKKHNubhtD0U2qVabfsDGFfabfuSEKd8a2l5k="
+
+before_deploy:
+  - git clean -dfx
+
+deploy:
+  provider: pypi
+  username: __token__
+  password: $PASS1$PASS2
+  edge: true
+  skip_existing: true
+  on:
+    tags: true
