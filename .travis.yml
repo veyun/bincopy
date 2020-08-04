@@ -26,7 +26,8 @@ before_deploy:
 deploy:
   provider: pypi
   username: __token__
-  password: "$PASS1$PASS2"
+  password:
+    - $PASS1$PASS2
   edge: true
   skip_existing: true
   on:
